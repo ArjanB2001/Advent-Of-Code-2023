@@ -1,4 +1,4 @@
-package main
+package day04
 
 import (
 	"aoc2023/io"
@@ -9,29 +9,32 @@ import (
 	"strings"
 )
 
-var day int = 4
+var Day int = 4
 
 func main() {
-	fmt.Printf("Running day %d\n", day)
-	//input := io.GetInput(day)
-	input := io.ReadFile(day)
+	RunBothParts()
+}
+
+func RunBothParts() {
+	fmt.Printf("Running Day %d\n", Day)
+	//input := io.GetInput(Day)
+	input := io.ReadFile(Day)
 	//fmt.Printf("%v", input)
 
-	answer1, err := part1(input)
+	answer1, err := Part1(input)
 	if err != nil {
 		fmt.Printf("Error running part 1\n")
 	} else {
 		fmt.Printf("Part 1 answer: %d \n", answer1)
 	}
 
-	answer2, err := part2(input)
+	answer2, err := Part2(input)
 	if err != nil {
 		fmt.Printf("Error running part 2\n")
 	} else {
 		fmt.Printf("Part 2 answer: %d \n", answer2)
 	}
 }
-
 func PowInts(x, n int) int {
 	if n == 0 {
 		return 1
@@ -46,7 +49,7 @@ func PowInts(x, n int) int {
 	return x * y * y
 }
 
-func part1(input []string) (int, error) {
+func Part1(input []string) (int, error) {
 	total := 0
 	for _, row := range input {
 		count := 0
@@ -89,7 +92,7 @@ func getCountScratchcards(winningmap map[int]int, card int) int {
 	return sum
 }
 
-func part2(input []string) (int, error) {
+func Part2(input []string) (int, error) {
 	winningMap := make(map[int]int)
 
 	for card, row := range input {

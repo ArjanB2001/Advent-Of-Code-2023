@@ -1,4 +1,4 @@
-package main
+package day03
 
 import (
 	"aoc2023/io"
@@ -7,22 +7,26 @@ import (
 	"strconv"
 )
 
-var day int = 3
+var Day int = 3
 
 func main() {
-	fmt.Printf("Running day %d\n", day)
-	//input := io.GetInput(day)
-	input := io.ReadFile(day)
+	RunBothParts()
+}
+
+func RunBothParts() {
+	fmt.Printf("Running Day %d\n", Day)
+	//input := io.GetInput(Day)
+	input := io.ReadFile(Day)
 	//fmt.Printf("%v", input)
 
-	answer1, err := part1(input)
+	answer1, err := Part1(input)
 	if err != nil {
 		fmt.Printf("Error running part 1\n")
 	} else {
 		fmt.Printf("Part 1 answer: %d \n", answer1)
 	}
 
-	answer2, err := part2(input)
+	answer2, err := Part2(input)
 	if err != nil {
 		fmt.Printf("Error running part 2\n")
 	} else {
@@ -109,7 +113,7 @@ func isPartNumber(input []string, lineId int, beginning int, end int) bool {
 	return false
 }
 
-func part1(input []string) (int, error) {
+func Part1(input []string) (int, error) {
 
 	total := 0
 	for lineId, line := range input {
@@ -146,7 +150,7 @@ func part1(input []string) (int, error) {
 	return 0, errors.New("Not implemented")
 }
 
-func part2(input []string) (int, error) {
+func Part2(input []string) (int, error) {
 	gearMap := make(map[int][]int)
 	total := 0
 	for lineId, line := range input {
